@@ -97,9 +97,7 @@ dotnet run
 
 **Access Swagger UI:**
 
-Open your browser and navigate to https://localhost:7074/   or  
-
-https://localhost:7074/swagger 
+Open your browser and navigate to https://localhost:7074/     
 
 to access the Swagger UI for testing the API.
 
