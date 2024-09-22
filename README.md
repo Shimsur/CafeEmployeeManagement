@@ -81,10 +81,12 @@ CREATE TABLE Employees (
 
 
 --  Create a sample cafe for seeding data 
+
 INSERT INTO Cafes (id, name, description, logo, location) 
 VALUES (UUID_TO_BIN(UUID()), 'Cafe A', 'A cozy place to relax', NULL, 'Downtown');
 
 --  Create a sample employee for seeding data
+
 
 INSERT INTO Employees (id, name, email_address, phone_number, gender, cafe_id, start_date) 
 VALUES ('UI1234567', 'John Doe', 'john@example.com', '91234567', 'Male', (SELECT id FROM Cafes LIMIT 1), CURDATE());
