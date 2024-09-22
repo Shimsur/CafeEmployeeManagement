@@ -101,6 +101,7 @@ Open your browser and navigate to https://localhost:7074/ or https://localhost:7
 
 **Endpoints**
 Cafes
+
 GET /cafes?location=<location>: Get a list of cafes, filtered by location.
 
 POST /cafe: Create a new cafe.
