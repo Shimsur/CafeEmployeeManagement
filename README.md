@@ -1,9 +1,9 @@
 
--> Cafe Employee Management API
+**Cafe Employee Management API**
 
 This project is a RESTful API for managing cafes and employees using .NET 6.x and MySQL. It includes endpoints for CRUD operations on cafes and employees.
 
--> Technologies Used:
+**Technologies Used**:
 
 .NET 6.x
 MySQL
@@ -11,17 +11,25 @@ Entity Framework Core
 Swagger for API documentation
 Installation
 
-->Clone the repository:
+**Clone the repository:**
 
 git clone <repository-url>
 cd CafeEmployeeManagement
 
 
-->Restore the NuGet packages:
+**Restore the NuGet packages:**
 
 dotnet restore
 
-->Configuration:
+**Features**
+
+- Cafe Management: Add and view cafes.
+- Employee Management: Manage employees tied to specific cafes.
+- Database Migrations: Automatic migration and seeding.
+- Swagger: Interactive API documentation.
+
+
+**Configuration:**
 Database Connection: Update the appsettings.json file with your MySQL connection string:
 
 {
@@ -39,7 +47,7 @@ Database Connection: Update the appsettings.json file with your MySQL connection
 
 
 
-->Back end Database Setup [MySql] :
+**Back end Database Setup [MySql] :**
 
 -- Create the database
 CREATE DATABASE cafeemployee;
@@ -79,26 +87,33 @@ VALUES (UUID_TO_BIN(UUID()), 'Cafe A', 'A cozy place to relax', NULL, 'Downtown'
 INSERT INTO Employees (id, name, email_address, phone_number, gender, cafe_id, start_date) 
 VALUES ('UI1234567', 'John Doe', 'john@example.com', '91234567', 'Male', (SELECT id FROM Cafes LIMIT 1), CURDATE());
 
--> Usage :
+**Usage :**
 Run the Application:
 dotnet run
 
--> Access Swagger UI: 
+**Access Swagger UI:**
 
 Open your browser and navigate to https://localhost:7074/ or https://localhost:7074/swagger to access the Swagger UI for testing the API.
 
--> Endpoints
+**Endpoints**
 Cafes
 GET /cafes?location=<location>: Get a list of cafes, filtered by location.
+
 POST /cafe: Create a new cafe.
+
 PUT /cafe: Update an existing cafe.
+
 DELETE /cafe: Delete a cafe.
+
 Employees
 GET /employees?cafe=<café>: Get a list of employees, filtered by cafe.
+
 POST /employee: Create a new employee.
+
 PUT /employee: Update an existing employee.
+
 DELETE /employee: Delete an employee.
 
-->Seeding the Database:
+**Seeding the Database:**
 
 Upon running the application for the first time, the database will be seeded with sample cafes and employees if they do not already exist. Modification can be done for seed data in the SeedDatabase method in Program.cs.
