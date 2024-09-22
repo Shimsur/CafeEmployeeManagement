@@ -64,7 +64,7 @@ CREATE TABLE Cafes (
     location VARCHAR(100) NOT NULL
 );
 
--- Create the Employee table
+-- Create the Employees table
 CREATE TABLE Employees (
     id VARCHAR(10) NOT NULL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -75,15 +75,17 @@ CREATE TABLE Employees (
     start_date DATE,
     FOREIGN KEY (cafe_id) REFERENCES Cafes(id) ON DELETE CASCADE,
     UNIQUE (email_address),
-    CHECK (phone_number REGEXP '^[89][0-9]{8}$'),
-    CHECK (id REGEXP '^UI[0-9A-Z]{7}$')
+    CHECK (phone_number REGEXP '^[89][0-9]{7}$'),  -- Phone number starts with 8 or 9 and has 8 digits
+    CHECK (id REGEXP '^UI[0-9A-Z]{7}$')          -- Employee id starts with 'UI' followed by 7 alphanumeric characters
 );
+
 
 --  Create a sample cafe for seeding data 
 INSERT INTO Cafes (id, name, description, logo, location) 
 VALUES (UUID_TO_BIN(UUID()), 'Cafe A', 'A cozy place to relax', NULL, 'Downtown');
 
 --  Create a sample employee for seeding data
+
 INSERT INTO Employees (id, name, email_address, phone_number, gender, cafe_id, start_date) 
 VALUES ('UI1234567', 'John Doe', 'john@example.com', '91234567', 'Male', (SELECT id FROM Cafes LIMIT 1), CURDATE());
 
